@@ -1,3 +1,19 @@
+try:
+    import sys
+    import os
+
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../src'
+            )
+        )
+    )
+
+except ImportError as e:
+    raise e
+
 import unittest
 from calculadora import soma, subtrai
 
@@ -52,4 +68,5 @@ class TesteCalculadora(unittest.TestCase):
             subtrai("a", "b")
 
 
-unittest.main(verbosity=2)
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

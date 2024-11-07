@@ -1,3 +1,19 @@
+try:
+    import sys
+    import os
+
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../src'
+            )
+        )
+    )
+
+except ImportError as e:
+    raise e
+
 import unittest
 from tdd_bacon_com_ovos import bacon_com_ovos
 
@@ -48,4 +64,5 @@ class TestBaconComOvos(unittest.TestCase):
                     msg=f'entrada: {entrada} não retornou {saida}')
 
 
-unittest.main(verbosity=2)
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
